@@ -1,0 +1,41 @@
+<h1>FORM</h1>
+    <form action="" method="post">
+      {{ form.hidden_tag()}}
+      <p>
+        {{ form.lln.label }}<br>
+        {{ form.lln(size=32) }}
+        {% for error in form.lln.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.lla.label }}<br>
+        {{ form.lla(size=32) }}
+        {% for error in form.lla.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.llsu.label }}<br>
+        {{ form.llsu(size=32) }}
+        {% for error in form.llsu.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.llst.label }}<br>
+        {{ form.llst(size=32) }}
+        {% for error in form.llst.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.llpc.label }}<br>
+        {{ form.llpc(size=32) }}
+        {% for error in form.llpc.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.submit() }}
+    </form>
