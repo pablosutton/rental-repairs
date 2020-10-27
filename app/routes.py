@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import date
 from random import randint
 import hashlib
+import os
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -29,6 +30,9 @@ def home():
         m.update(bn)
         y = m.hexdigest()
         file_name = "{}.docx".format(y)
+        dir = os.getcwd()
+        path = Path (dir+'/app/notices')
+        os.chdir(path)
         document.write(file_name)
         session['file_name'] = file_name
         return redirect('/download')
@@ -40,5 +44,6 @@ def download():
 
 @app.route('/download_file')
 def download_file():
-        path = Path('C:/Users/pablo/Dropbox (Personal)/Python/RentalAssist/{}'.format(session['file_name']))
+        dir = os.getcwd()
+        path = Path ('{}/{}'.format(dir, session['file_name']))
         return send_file(path, as_attachment=True)
